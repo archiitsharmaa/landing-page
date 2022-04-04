@@ -1,5 +1,5 @@
 let data = [{
-    name :'archit',
+    name :'Archit Sharma',
     username : 'archit04',
     password : '*snowman04',
     role : 'admin'
@@ -12,12 +12,14 @@ let data = [{
 }
 ];
 
-function signupValidation(e) {
+localStorage.setItem('MobilezDatabase', JSON.stringify(data));
+
+function signupValidation(e, role) {
 
     e.preventDefault();    
     
 
-    console.log(e);
+    //console.log(role);
   
     let password = document.forms["signup"]["password-input"].value;
     let username = document.forms["signup"]["username-input"].value;
@@ -32,11 +34,11 @@ function signupValidation(e) {
     }
 
     if(!passwordRegularExpression.test(password)) {
-        alert("Password should contain atleast one number, one special character and must have 8-16 characters.");
+        alert("Please insert password which contains atleast one digit and one special character and must have minimum 8 and maximum 16 characters.");
         return false;
     }
 
-    database({name, username, password},data);
+    database({name, username, password},data, role);
 
   
   }
@@ -49,11 +51,20 @@ function adminLoginValidation(e){
 
     let inputPassword = document.forms["admin-login"]["password-input"].value;
     let inputUsername = document.forms["admin-login"]["username-input"].value;
+    
+    data = JSON.parse(localStorage.getItem('MobilezDatabase'));
+    
 
     let processAdmins = data.filter((ele) => {return ele.role === 'admin' && (ele.username === inputUsername && ele.password === inputPassword)});
-    
+
     if(processAdmins.length == 1){
-        window.location.href = 'adminDashboard.html';
+
+        localStorage.setItem('FullName', processAdmins[0].name);
+        localStorage.setItem('Username', processAdmins[0].username);
+        localStorage.setItem('Role', processAdmins[0].role);
+        localStorage.setItem('Password', processAdmins[0].password);
+        
+       window.location.href = 'adminDashboard.html';
     }
 
     else{
@@ -69,9 +80,15 @@ function userLoginValidation(e){
     let inputPassword = document.forms["user-login"]["password-input"].value;
     let inputUsername = document.forms["user-login"]["name-input"].value;
 
+    data = JSON.parse(localStorage.getItem('MobilezDatabase'));
+
     let processAdmins = data.filter((ele) => {return ele.role === 'user' && (ele.username === inputUsername && ele.password === inputPassword)});
     
     if(processAdmins.length == 1){
+        localStorage.setItem('FullName', processAdmins[0].name);
+        localStorage.setItem('Username', processAdmins[0].username);
+        localStorage.setItem('Role', processAdmins[0].role);
+        localStorage.setItem('Password', processAdmins[0].password);
         window.location.href = 'userdashboard.html';
     }
 
@@ -79,4 +96,14 @@ function userLoginValidation(e){
         alert("Wrong username or password");
     }
 
+}
+
+function logoutUser(){
+    console.log(localStorage.removeItem('FullName'));
+    localStorage.removeItem('FullName');
+    localStorage.removeItem('Username');
+    localStorage.removeItem('Role');
+    localStorage.removeItem('Password');
+    window.location.href = 'index.html';
+    alert('You have been logged out');
 }

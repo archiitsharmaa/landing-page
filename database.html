@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <title>User-database</title>
+</head>
+<body>
+    <div id = "main">
+    <div id  = "admin-container">
+
+        <div>
+            <div class="navbar" id ="navbar">
+                <a class="active" href="adminDashboard.html"><i class="fa fa-fw fa-home"></i> Home</a> 
+                <a  href="updateForm.html"><i class="fa fa-refresh" aria-hidden="true"></i> Update Account</a> 
+                <a href="database.html"><i class="fa-solid fa-database"></i> User Database</a> 
+                <a href="javascript:void(0);" onclick="logoutUser();" id = "last-tag" ><i class="fa fa-fw fa-user"></i> Log Out</a>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()"> <i class="fa fa-bars"></i></a>
+              
+            </div>
+        </div> 
+
+        <table id="displayTable" style="margin-top: auto; margin-bottom: auto;">
+            <tr class="header">
+              <th>Name</th>
+              <th>Username</th>
+              <th>Role</th>
+              <th>Operation 1</th>
+              <th>Operation 2</th>
+            </tr>
+          </table>
+
+    </div>
+</div>
+
+
+<script>
+
+    user_records=JSON.parse(localStorage.getItem("MobilezDatabase"))?JSON.parse(localStorage.getItem("MobilezDatabase")):[] //putting data from User array into user_records
+    
+    buildTable(user_records) 
+    
+    function buildTable(data){//fill up the table with user data
+      var table = document.getElementById('displayTable') //table to be filled
+    
+      for(var i =0; i<data.length; i++){ //looping through the array until data.length
+          console.log(i);
+          var row = `<tr>
+                              <td>${data[i].name}</td>
+                              <td>${data[i].username}</td>
+                              <td>${data[i].role}</td>
+                              <td><button type="submit" value="Delete" onclick="removeItemOnce(${i})">Delete User</button></td>
+                              <td><button type="submit" value="Edit" onclick="updateUser(${i})">Edit User</button></td>  
+          
+              </tr>`  
+              table.innerHTML += row
+      }
+    }
+    
+    function updateUser(index) {
+
+    if(index > -1){
+        localStorage.removeItem('FullName');
+        localStorage.removeItem('Username');
+        localStorage.removeItem('Role');
+        localStorage.removeItem('Password');
+
+        localStorage.setItem('FullName', user_records[index].name);
+        localStorage.setItem('Username', user_records[index].username);
+        localStorage.setItem('Role', user_records[index].role);
+        localStorage.setItem('Password', user_records[index].password);
+
+        window.location.href = 'updateForm.html';
+    }
+        
+    }
+
+    //remove user , triggered by Delete User button, using index
+    function removeItemOnce(index) {
+
+    if (index > -1) {
+      user_records.splice(index, 1);
+      localStorage.setItem("MobilezDatabase",JSON.stringify(user_records));
+      document.location.reload(true)
+    }
+    return user_records;
+    }
+    
+    </script>
+
+    <script src = "database.js"></script>
+    <script src = "script.js"></script>
+    <script src = "validation.js"></script>
+</body>
+</html>

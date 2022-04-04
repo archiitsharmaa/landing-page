@@ -6,12 +6,33 @@
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
     <title>admin-dashboard</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
 </head>
 <body>
     <div id = "main">
-        <div id = "admin-dashboard-welcome">
-            <h1> Hi Admin </h1>
-            <p id = "demo"> hello </p>
+        <div id  = "admin-container">
+            <div>
+                <div class="navbar" id ="navbar">
+                    <a class="active" href="adminDashboard.html"><i class="fa fa-fw fa-home"></i> Home</a> 
+                    <a  href="updateForm.html"><i class="fa fa-refresh" aria-hidden="true"></i> Update Account</a> 
+                    <a href="database.html"><i class="fa-solid fa-database"></i> User Database</a> 
+                    <a href="javascript:void(0);" onclick="logoutUser();" id = "last-tag" ><i class="fa fa-fw fa-user"></i> Log Out</a>
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()"> <i class="fa fa-bars"></i></a>
+                  
+                </div>
+            </div> 
+
+            <div id = "admin-dashboard-welcome">
+                <h1> Hi <script>document.write(localStorage.getItem('FullName'));</script> </h1>
+                <p> The details of this accounts are as follows.</p>
+                <h2>Name : <script>document.write(localStorage.getItem('FullName'));</script><br>
+                Username :       <script>document.write(localStorage.getItem('Username'));</script><br>
+                Role : <script>document.write(localStorage.getItem('Role'));</script></h2>
+            </div>
         </div>
+
+        <script src = "validation.js"></script>
+        <script src= "script.js"></script>
+        <script src = "database.js"></script>
 </body>
 </html>
