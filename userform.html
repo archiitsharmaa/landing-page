@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="style.css">
+    <title>MobileZ-User Form</title>
+</head>
+<body>
+    
+    <div id = "main">
+	
+    <div id  = "container"> 
+        <div id = "form-text">
+            <h2 id = "form-greeting-header"> Welcome <span id ="last-word">User!</span> </h2>
+
+            <div id = "form-content-span">
+                <span>Please signup or login as user to acess user dashboard</span>
+            </div>
+        </div>
+        
+        <div id="form-content"> 
+            <div class="flip-container">
+                <div class="flipper" id="flipper">
+
+                    <div class="front">
+                        <h1 class="title">Register</h1>
+
+                        <form name="signup" onsubmit="signupValidation(event);">
+                            <input type="text" id = "name-input" name="name-input" placeholder="Full Name" required/>
+                            <input type="text" id ="username-input" name = "username-input" placeholder="Username" required/>
+                            <input type="password" id = "password-input" name = "password-input" placeholder="Password" required/>
+                            <input type="submit" value="Login" id = "login-button" /> 
+                        </form>
+                        <a class="flipbutton" id="registerButton" href="#">Login to my account →</a>
+                    </div>
+
+                    <div class="back">
+                        <h1 class="title">Login</h1>
+                        <form name = "user-login" onsubmit="userLoginValidation(event);">
+                                    <input type="text" name = "name-input" placeholder="Username" required/>
+                                    <input type="password" name = "password-input" placeholder="Password" required/>
+                                    <input type="submit" value="Login"/>
+                        </form>
+                        <a class="flipbutton" id="loginButton" href="#">Create my account →</a>
+                    </div>
+                    
+                </div>
+                </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+<script src="operator.js"></script>
+<script src="./validation.js"></script>
+
+
+
+
+</body>
+</html>

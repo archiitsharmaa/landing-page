@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta name="referrer" content="origin">
+		<meta charset= "utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="style.css">
+        <title>MobileZ</title>
+</head>
+<body> 
+	<div id = "main">
+	
+		<div id  = "container"> 
+            <div id = "landing-page-illustration">
+                <img src = '/assets/landing-page-illustration.svg' alt = "the illustration">
+            </div>
+			
+			<div id="content"> 
+				<h2 id = "greeting-header"> Welcome to <span id ="last-word">MobileZ!</span> </h2>
+
+                <div id = "content-span">
+                    <span>Choose your role and login/signup to your dashboard!</span>
+                </div>
+
+                <div id = "landing-page-button">
+                    <button type="button" id = "admin-button" onclick = "location.href = 'adminform.html'; ">
+                        <i class="fas fa-user-clock bg-transparent mr" style="color: #555555;"></i>  Admin
+                      </button>
+                    <button type="button" id = "users-button" onclick = "location.href = 'userform.html'; ">
+                        <i class="fas fa-users bg-transparent mr" style="color: #555555;"></i>  Users
+                    </button>
+                </div>
+
+			</div>
+
+		</div>
+
+    </div>
+</body>
+</html>
