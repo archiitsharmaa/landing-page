@@ -1,67 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
+    <!-- inserts required style sheets and dependencies -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <title>MobileZ-User Form</title>
 </head>
+
 <body>
-    
-    <div id = "main">
-	
-    <div id  = "container"> 
-        <div id = "form-text">
-            <h2 id = "form-greeting-header"> Welcome <span id ="last-word">User!</span> </h2>
 
-            <div id = "form-content-span">
-                <span>Please signup or login as user to acess user dashboard</span>
+    <!-- main div covers entire page -->
+    <div id="main">
+
+        <!-- box div at the center of page with glassify effect -->
+        <div id="container">
+            <div id="form-text">
+
+                 <!-- displays guiding and greeting texts for the page -->
+                <h2 id="form-greeting-header"> Welcome <span id="last-word">User!</span> </h2>
+
+                <div id="form-content-span">
+                    <span>Please signup or login as user to acess user dashboard</span>
+                </div>
             </div>
-        </div>
-        
-        <div id="form-content"> 
-            <div class="flip-container">
-                <div class="flipper" id="flipper">
 
-                    <div class="front">
-                        <h1 class="title">Register</h1>
+             <!-- form box with flipping ability between login and signup -->
+            <div id="form-content">
 
-                        <form name="signup" onsubmit="signupValidation(event, 'user');">
-                            <input type="text" id = "name-input" name="name-input" placeholder="Full Name" required/>
-                            <input type="text" id ="username-input" name = "username-input" placeholder="Username" required/>
-                            <input type="password" id = "password-input" name = "password-input" placeholder="Password" required/>
-                            <input type="submit" value="Login" id = "login-button" /> 
-                        </form>
-                        <a class="flipbutton" id="registerButton" href="#">Login to my account →</a>
+                <!-- div contains the box for the form  -->
+                <div class="flip-container">
+                    <div class="flipper" id="flipper">
+
+                         <!-- front part of the flip box dsipays options to sinup -->
+                        <div class="front">
+                            <h1 class="title">Register</h1>
+                            <form name="signup" onsubmit="signupValidation(event, 'user');">
+                                <input type="text" id="name-input" name="name-input" placeholder="Full Name" required />
+                                <input type="text" id="username-input" name="username-input" placeholder="Username"
+                                    required />
+                                <input type="password" id="password-input" name="password-input" placeholder="Password"
+                                    required />
+                                <input type="submit" value="Login" id="login-button" />
+                            </form>
+
+                            <!-- flipping to login functionality -->
+                            <a class="flipbutton" id="registerButton" href="#">Login to my account →</a>
+                        </div>
+
+                        <!-- back part of the flip box dsipays options to signup -->
+                        <div class="back">
+                            <h1 class="title">Login</h1>
+                            <form name="user-login" onsubmit="userLoginValidation(event);">
+                                <input type="text" name="name-input" placeholder="Username" required />
+                                <input type="password" name="password-input" placeholder="Password" required />
+                                <input type="submit" value="Login" />
+                            </form>
+                            <a class="flipbutton" id="loginButton" href="#">Create my account →</a>
+                        </div>
+
                     </div>
+                </div>
 
-                    <div class="back">
-                        <h1 class="title">Login</h1>
-                        <form name = "user-login" onsubmit="userLoginValidation(event);">
-                                    <input type="text" name = "name-input" placeholder="Username" required/>
-                                    <input type="password" name = "password-input" placeholder="Password" required/>
-                                    <input type="submit" value="Login"/>
-                        </form>
-                        <a class="flipbutton" id="loginButton" href="#">Create my account →</a>
-                    </div>
-                    
-                </div>
-                </div>
+            </div>
 
         </div>
 
     </div>
 
-</div>
-
-<script src="script.js"></script>
-<script src="operator.js"></script>
-<script src="./validation.js"></script>
+    <!-- importing scripts -->
+    <script src="./javascripts/script.js"></script>
+    <script src="./javascripts/operator.js"></script>
+    <script src="./javascripts/validation.js"></script>
 
 
 
 
 </body>
+
 </html>

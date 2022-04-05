@@ -1,41 +1,54 @@
 <!DOCTYPE html>
 <html>
-<head>
-		<meta name="referrer" content="origin">
-		<meta charset= "utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-		<link rel="stylesheet" type="text/css" href="style.css">
-        <title>MobileZ</title>
-</head>
-<body> 
-	<div id = "main">
-	
-		<div id  = "container"> 
-            <div id = "landing-page-illustration">
-                <img src = '/assets/landing-page-illustration.svg' alt = "the illustration">
-            </div>
-			
-			<div id="content"> 
-				<h2 id = "greeting-header"> Welcome to <span id ="last-word">MobileZ!</span> </h2>
 
-                <div id = "content-span">
+<head>
+    <!-- inserts required style sheets and dependencies -->
+    <meta name="referrer" content="origin">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>MobileZ</title>
+</head>
+
+<body>
+    <!-- main div covers entire page -->
+    <div id="main">
+
+        <!-- box div at the center of page with glassify effect -->
+        <div id="container">
+            <!-- div displaying illustrations  -->
+            <div id="landing-page-illustration">
+                <!-- loading the image -->
+                <img src='/assets/landing-page-illustration.svg' alt="the illustration">
+            </div>
+
+            <!-- div containing text and options to navigate -->
+            <div id="content">
+                <h2 id="greeting-header"> Welcome to <span id="last-word">MobileZ!</span> </h2>
+
+                <div id="content-span">
                     <span>Choose your role and login/signup to your dashboard!</span>
                 </div>
 
-                <div id = "landing-page-button">
-                    <button type="button" id = "admin-button" onclick = "location.href = 'adminform.html'; ">
-                        <i class="fas fa-user-clock bg-transparent mr" style="color: #555555;"></i>  Admin
-                      </button>
-                    <button type="button" id = "users-button" onclick = "location.href = 'userform.html'; ">
-                        <i class="fas fa-users bg-transparent mr" style="color: #555555;"></i>  Users
+                <!-- div with navigation buttons -->
+                <div id="landing-page-button">
+
+                    <!-- this button navigates to the adminform page which has signup and login options as admin -->
+                    <button type="button" id="admin-button" onclick="location.href = 'adminform.html'; ">
+                        <i class="fas fa-user-clock bg-transparent mr" style="color: #555555;"></i> Admin
+                    </button>
+                    <!-- this button navigates to the userform page which has signup and login options as user -->
+                    <button type="button" id="users-button" onclick="location.href = 'userform.html'; ">
+                        <i class="fas fa-users bg-transparent mr" style="color: #555555;"></i> Users
                     </button>
                 </div>
 
-			</div>
+            </div>
 
-		</div>
+        </div>
 
     </div>
 </body>
+
 </html>
