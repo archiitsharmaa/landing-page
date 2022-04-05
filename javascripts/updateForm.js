@@ -1,31 +1,41 @@
-// update the form 
+// updates the data of the user/admin
 function updateForm(e){
 
+    //prevents basic nature
     e.preventDefault();
 
-    //input data 
+    //getting input data 
     let inputPassword = document.forms["update-Form"]["password-input"].value;
     let inputUsername = document.forms["update-Form"]["username-input"].value;
     let inputname = document.forms["update-Form"]["name-input"].value;
 
+    //fetching data from the local storage
     data = JSON.parse(localStorage.getItem('MobilezDatabase'));
 
+    //cehcks for the current user/admin or user selected by admin
     let processAdmins = data.filter((ele) => {return ele.username === localStorage.getItem('Username') && ele.password === localStorage.getItem('Password')});
 
+    //if match is found
     if(processAdmins.length == 1){
-        var persons = JSON.parse(localStorage.MobilezDatabase);
-        for (var i = 0; i < persons.length; i++) {
-            if(localStorage.getItem('Username') === persons[i].username){  //look for match with name
-                persons[i].username = inputUsername;  //update
-                persons[i].password = inputPassword;  //update
-                persons[i].name = inputname;  //update
-                break;  //exit loop since you found the person
+
+        for (var i = 0; i < data.length; i++) {
+            //look for match with name
+            if(localStorage.getItem('Username') === data[i].username){  
+                //update
+                data[i].username = inputUsername;  
+                data[i].password = inputPassword;
+                data[i].name = inputname;
+                //exist, seach is over
+                break;
             }
         }
-        localStorage.setItem("MobilezDatabase", JSON.stringify(persons));
+
+        //updates the updated data to local storage
+        localStorage.setItem("MobilezDatabase", JSON.stringify(data));
         alert("updated values");
     }
 
+    //if some error occured
     else{
         alert("Some error occured while updating");
     }

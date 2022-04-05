@@ -43,8 +43,7 @@
                     <th>Name</th>
                     <th>Username</th>
                     <th>Role</th>
-                    <th>Operation 1</th>
-                    <th>Operation 2</th>
+                    <th>Actions</th>
                 </tr>
             </table>
 
@@ -74,8 +73,8 @@
                               <td>${data[i].name}</td>
                               <td>${data[i].username}</td>
                               <td>${data[i].role}</td>
-                              <td><button type="submit" value="Delete" onclick="removeItemOnce(${i})">Delete</button></td>
-                              <td><button type="submit" value="Edit" onclick="updateUser(${i})">Edit</button></td>  
+                              <td><button type="submit" value="Delete" onclick="removeItemOnce(${i})">Delete</button>
+                              <button type="submit" value="Edit" onclick="updateUser(${i})">Edit</button></td>  
           
               </tr>`
                 table.innerHTML += row
@@ -105,6 +104,7 @@
         //function to remove the users
         function removeItemOnce(index) {
 
+            //uses splice to run the course
             if (index > -1) {
                 recordss.splice(index, 1);
                 localStorage.setItem("MobilezDatabase", JSON.stringify(recordss));

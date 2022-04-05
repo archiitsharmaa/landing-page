@@ -13,7 +13,7 @@ class Operator {
 //fucntion to update the database
 function database(payload, data, role) {
 
-    //checks if the user exists or not
+    //checks if the username exists or not if exists than exits else operates
     if (data.some((ele) => {
             return ele.username == payload.username
         })) {
@@ -24,6 +24,7 @@ function database(payload, data, role) {
 
         //creates the new operator
         let person = new Operator(payload.name, payload.username, payload.password, role);
+        //pushing the new user into database
         data.push(person);
 
         // to clear the form for the next entries

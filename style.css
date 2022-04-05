@@ -1,21 +1,30 @@
+/*basic body styling*/
 html, body{
 	width: 100%;
 	min-height: 100%;
 	margin:0px;
+	/* fonts used */
 	font-family: 'Roboto', sans-serif;
+	/* background backdrop image */
 	background: url(./assets/background.svg);
 	background-position: center;
 }
 
+
+/* container div for box in middle of page */
  #container{
 	
+	/* setting up dimensions for box */
 	width: 70%;
 	height: 58%;
+
+	/* flex boxes for easy divs and responsiveness */
 	display: flex;
 	flex-flow: row wrap;
 	flex-wrap: wrap;
 	justify-content: space-between;
 
+	/* postioning the box */
 	position: absolute;
     top:0;
     bottom: 0;
@@ -27,6 +36,7 @@ html, body{
 
 	padding: 2%;
 
+	/* adding glassify like features */
 	background: rgba(255, 255, 255, 0.4);
 	border-radius: 16px;
 	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -37,7 +47,7 @@ html, body{
 }
 
 
-
+/* contet guiding features */
 #content, #form-content{
 	width: 45%;
 	height: 100%;
@@ -47,6 +57,7 @@ html, body{
 
 }
 
+/* illustration for the page */
 #landing-page-illustration{
 	width: 47%;
 	height: 100%;
@@ -54,40 +65,52 @@ html, body{
 	overflow: hidden;
 
 }
+
+/* image configurations */
 #landing-image{
 	height: 100%;
 	width: 100%;
 }
 
+/* heading of the page */
 #content h2{
+
+	/* spacing around */
 	padding-top: 20%;
 	padding-left: 10%;
 	padding-right: 10%;
 	color: #555555;
+	/* font edit */
 	font-size: 35px;
 	font-weight: 100;
 	
 }
 
+/* last word in heading */
 #last-word{
 	color:#FF9E4F;
 }
 
+/* span heading */
 #content-span{
 	color: #555555;
 	padding-left: 8%;
 }
 
+/* button tags in the landing page */
 #landing-page-button{
+	/* padding the buttons */
 	padding-top: 10%;
 	padding-left: 10%;
 	padding-right: 15%;
+	/* box flex  */
 	display: flex;
 	flex-flow: row wrap;
 	flex-wrap: wrap;
 	justify-content: space-between;
 }
 
+/* button to login as admin */
 #admin-button{
 	font-size: 25px;
 	font-weight: 100;
@@ -98,6 +121,7 @@ html, body{
 	border-color: #FF9E4F;
 }
 
+/* button to login as user */
 #users-button{
 	font-size: 25px;
 	font-weight: 100;
@@ -123,13 +147,15 @@ html, body{
 	color: #555555;
 }
 
-
+/* box on the flip */
 .flip-container {
 	padding-top: 10%;
 	padding-left: 5%;
 	perspective: 1000;
 	color: #555555;
 }
+
+/* flipping the form css */
 .flipper {
   padding: 30px;
   width: 300px;
@@ -155,18 +181,23 @@ html, body{
 	backface-visibility: hidden;
 }
 
+/* front of the form */
 .front{
 	z-index: 2;
-	/* for firefox 31 */
 	transform: rotateY(0deg);
 }
 
+/* back of the form */
 .back{
     transform: rotateY(180deg);
 }
+
+/* flipping features */
 .flip{
 		transform: rotateY(180deg);
 }
+
+/* input fields of the form */
 input{
     width:100%;
     margin-bottom:15px;
@@ -178,12 +209,15 @@ input{
 .title{
   text-align: center;
 }
+
+/* flipping link */
 .flipbutton{
-    color:#4096ee;
+    color:#FF9E4F;
     text-decoration:none;
     text-align:left !important;
 }
 
+/* navbar styling */
 .navbar {
 	width: 100%;
 	background-color: transparent;
@@ -198,6 +232,7 @@ input{
 	font-size: 17px;
   }
   
+  /* hover feature */
   .navbar a:hover {
 	background: rgba(255, 161, 133, 0.6);
 	-moz-border-radius: 15px; -webkit-border-radius: 15px; border-radius: 15px;
@@ -207,7 +242,7 @@ input{
 	display: none;
   }
 
-  
+  /* last word */
   #last-tag{
   float:right;
   }
@@ -232,7 +267,7 @@ input{
 	font-weight: 100;
   }
 
-
+/* dashboard of admin */
   #admin-container{
 	
 	width: 70%;
@@ -261,19 +296,23 @@ input{
 
 }
 
+/* user table styling */
 #myTable {
 	margin-left: auto;
 	margin-right: auto;
-	border-collapse: collapse; /* Collapse borders */
-	width: 60%; /* Full-width */
-	border: 1px solid #ddd; /* Add a grey border */
-	font-size: 18px; /* Increase font-size */
+	/* Collapse borders */
+	border-collapse: collapse; 
+	width: 60%; 
+	border: 1px solid #ddd;
+	font-size: 18px;
 	overflow-x:auto;
   }
   
   #displayTable th, #displayTable td {
-	text-align: left; /* Left-align text */
-	padding: 12px; /* Add padding */
+	 /* Left-align text */
+	text-align: left;
+	/* Add padding */
+	padding: 12px; 
   }
   
   #displayTable tr {
@@ -287,9 +326,7 @@ input{
   }     
 
 
-
-
-
+/* adding media queries for above for responsive */
 @media only screen and (max-width: 850px) {
 	#container{
 		flex-flow: column;
