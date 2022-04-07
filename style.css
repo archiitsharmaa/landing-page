@@ -46,6 +46,44 @@ html, body{
 
 }
 
+/* container div for box in middle of page */
+#update-container{
+	
+	/* setting up dimensions for box */
+	width: 70%;
+	height: 58%;
+
+	/* postioning the box */
+	position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;   
+    margin: auto;
+	column-count: auto;
+	overflow: hidden;
+
+	padding: 2%;
+
+	/* adding glassify like features */
+	background: rgba(255, 255, 255, 0.4);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+
+}
+
+#text-container{
+/* flex boxes for easy divs and responsiveness */
+display: flex;
+flex-flow: row wrap;
+flex-wrap: wrap;
+justify-content: space-between;
+
+}
+
 
 /* contet guiding features */
 #content, #form-content{
@@ -296,21 +334,45 @@ input{
 
 }
 
+/* dashboard of admin */
+#searchUser-container{
+	
+	width: 70%;
+	height: 58%;
+
+	position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;   
+    margin: auto; 
+	overflow-y: scroll;
+	padding: 2%;
+
+	background: rgba(255, 255, 255, 0.4);
+	border-radius: 16px;
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+
+}
+
+#searchUserForm{
+	padding-top: 2%;
+}
+
 /* user table styling */
-#myTable {
+  #displayTable{
+	
 	margin-left: auto;
 	margin-right: auto;
-	/* Collapse borders */
-	border-collapse: collapse; 
-	width: 60%; 
-	border: 1px solid #ddd;
-	font-size: 18px;
-	overflow-x:auto;
+	width: 100%;
   }
   
   #displayTable th, #displayTable td {
 	 /* Left-align text */
-	text-align: left;
+	text-align: center;
 	/* Add padding */
 	padding: 12px; 
   }
@@ -324,6 +386,147 @@ input{
 	/* Add a grey background color to the table header and on hover */
 	background-color: #f7b2a4;
   }     
+
+.input-control {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-control input {
+    border: 2px solid #f0f0f0;
+	border-radius: 4px;
+	display: block;
+	font-size: 14px;
+	padding: 10px;
+	width: 100%;
+}
+
+.input-control input:focus {
+    outline: 0;
+}
+
+.input-control.success input {
+    border-color: #09c372;
+}
+
+.input-control.error input {
+    border-color: #ff3860;
+}
+
+.input-control .error {
+    color: #ff3860;
+    font-size: 12px;
+    height: 1px;
+}
+
+.input-control.submitted input {
+    border-color: #555555;
+}
+
+.searchUser{ 
+	position:relative;
+	  overflow-x:auto;
+	  overflow-y: auto;
+}
+
+#login-toast, #signup-sucess-toast, #logout-toast, #signup-fail-toast {
+    visibility: hidden;
+    max-width: 50px;
+    height: 50px;
+    /*margin-left: -125px;*/
+    margin: auto;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+
+    position: fixed;
+    z-index: 1;
+    left: 0;right:0;
+    bottom: 30px;
+    font-size: 17px;
+    white-space: nowrap;
+}
+#login-toast #img, #signup-sucess-toast #img, #logout-toast #img, #signup-fail-toast #img{
+	width: 50px;
+	height: 50px;
+    
+    float: left;
+    
+    padding-top: 16px;
+    padding-bottom: 16px;
+    
+    box-sizing: border-box;
+
+    
+    background-color: #111;
+    color: #fff;
+}
+#login-toast #desc, #signup-sucess-toast #desc, #logout-toast #desc, #signup-fail-toast #desc{
+
+    
+    color: #fff;
+   
+    padding: 16px;
+    
+    overflow: hidden;
+	white-space: nowrap;
+}
+
+#login-toast.show, #signup-sucess-toast.show, #logout-toast.show, #signup-fail-toast.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 4s, fadeout 0.5s 4.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes expand {
+    from {min-width: 50px} 
+    to {min-width: 350px}
+}
+
+@keyframes expand {
+    from {min-width: 50px}
+    to {min-width: 350px}
+}
+@-webkit-keyframes stay {
+    from {min-width: 350px} 
+    to {min-width: 350px}
+}
+
+@keyframes stay {
+    from {min-width: 350px}
+    to {min-width: 350px}
+}
+@-webkit-keyframes shrink {
+    from {min-width: 350px;} 
+    to {min-width: 50px;}
+}
+
+@keyframes shrink {
+    from {min-width: 350px;} 
+    to {min-width: 50px;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 60px; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 60px; opacity: 0;}
+}
+
 
 
 /* adding media queries for above for responsive */

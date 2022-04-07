@@ -1,5 +1,5 @@
 <!-- author -> @archit.sharma
-This page contains functionality for admin to acess teh users/admin database and perform fucntions on it -->
+This page contains functionality for admin to acess teh users/admin database and perform fucntions on itl -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +18,7 @@ This page contains functionality for admin to acess teh users/admin database and
     <div id="main">
 
         <!-- box div at the center of page with glassify effect -->
-        <div id="admin-container">
+        <div id="searchUser-container">
 
             <div>
                 <!-- div contaning navbar to navigate across the dashboard -->
@@ -40,6 +40,8 @@ This page contains functionality for admin to acess teh users/admin database and
             </div>
 
             <!-- displays tables from the script below -->
+            <form onsubmit="return false"  id="searchUserForm">
+            <input type="text" id="searchInput" onkeyup="searchPerson()" placeholder="Search the Username"> 
             <table id="displayTable" style="margin-top: auto; margin-bottom: auto;">
                 <tr class="header">
                     <th>Name</th>
@@ -48,6 +50,7 @@ This page contains functionality for admin to acess teh users/admin database and
                     <th>Actions</th>
                 </tr>
             </table>
+            </form>
 
         </div>
     </div>
@@ -116,9 +119,13 @@ This page contains functionality for admin to acess teh users/admin database and
         }
     </script>
 
+    <!-- adding toastifiers class -->
+    <div id="logout-toast"><div id="img"><i class="fa fa-check" aria-hidden="true"></i></div><div id="desc">Logged Out, Sucessfully !</div></div>
+
     <!-- importing required scripts to provide functionality  -->
     <script src="./javascripts/script.js"></script>
     <script src="./javascripts/validation.js"></script>
+    <script src ="./javascripts/operations.js"></script>
 </body>
 
 </html>

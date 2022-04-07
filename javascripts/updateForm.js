@@ -1,3 +1,124 @@
+//get button element
+var signUpButton = document.getElementById("login-button");
+
+//setting error border by adding error class accordingly
+function setError(parentDiv, errorDiv){
+    parentDiv.classList.remove("success");
+    parentDiv.classList.add("error");
+    errorDiv.innerHTML = 'Please enter your name';
+}
+
+//setting success border by adding success class accordingly
+function setSuccess(parentDiv, errorDiv){
+    errorDiv.innerHTML = '';
+    parentDiv.classList.remove("error");
+    parentDiv.classList.add("success");
+}
+
+function validateNameChange(){
+
+    let currentInput = localStorage.getItem('FullName');
+
+    //fetching details for the name - input
+    let input = document.getElementById('name-input');
+    var parentDiv = input.parentElement;
+    let errorDiv = document.getElementById('name-error');
+    
+    //regular expression pattern
+    var nameRegularExpression = /^[\\a-zA-z .'-]+$/;
+
+    if(input.value === currentInput){
+        setError(parentDiv, errorDiv);
+        signUpButton.disabled = true;
+    }  
+    else {
+        if (input.value === '') { 
+            setError(parentDiv, errorDiv);
+            signUpButton.disabled = true;
+          }
+        else{
+        //checking for name regular expression
+        if(!nameRegularExpression.test(input.value)) {
+            setError(parentDiv, errorDiv);
+            signUpButton.disabled = true;
+        }
+        else {
+            setSuccess(parentDiv, errorDiv);
+            signUpButton.disabled = false;
+        }
+
+    }
+    }
+
+}
+
+//function to cient side validate username without submitting
+function validateUsernameChange(){
+
+    let currentInput = localStorage.getItem('Username');
+
+    //fetching details for the username - input
+    let input = document.getElementById('username-input');
+    var parentDiv = input.parentElement;
+    let errorDiv = document.getElementById('username-error');
+    
+    if(input.value === currentInput){
+        setError(parentDiv, errorDiv);
+        signUpButton.disabled = true;
+    }  
+    
+    else{
+    if (input.value === '') { 
+        setError(parentDiv, errorDiv);
+        signUpButton.disabled = true;
+      }
+    else {
+        //setting suceess to it
+        setSuccess(parentDiv, errorDiv);
+        signUpButton.disabled = false;
+        }
+    }
+}
+
+//function to cient side validate username without submitting
+function validatePasswordChange(){
+
+    let currentInput = localStorage.getItem('password');
+
+    //fetching details for the password - input
+    let input = document.getElementById('password-input');
+    var parentDiv = input.parentElement;
+    let errorDiv = document.getElementById('password-error');
+    
+    //regular expression pattern
+    var passwordRegularExpression = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,16}$/;
+
+    if(input.value === currentInput){
+        setError(parentDiv, errorDiv);
+        signUpButton.disabled = true;
+    }
+
+    else{
+    if (input.value === '') { 
+        setError(parentDiv, errorDiv);
+        signUpButton.disabled = true;
+      }
+    else {
+        //checking for name regular expression
+        if(!passwordRegularExpression.test(input.value)) {
+            setError(parentDiv, errorDiv);
+            signUpButton.disabled = true;
+        }
+        else {
+            setSuccess(parentDiv, errorDiv);
+            signUpButton.disabled = false;
+        }
+    }
+}
+
+}
+    
+
 // updates the data of the user/admin
 function updateForm(e){
 
@@ -31,13 +152,13 @@ function updateForm(e){
         }
 
         //updates the updated data to local storage
+        launch_user_Success_toast();
         localStorage.setItem("MobilezDatabase", JSON.stringify(data));
-        alert("updated values");
     }
 
     //if some error occured
     else{
-        alert("Some error occured while updating");
+        launch_user_Fail_toast();
     }
 
 }
