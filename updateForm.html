@@ -25,7 +25,12 @@ This page contains functionality for admin/user to update their data in the syst
                 <!-- div contaning navbar to navigate across the dashboard -->
                 <div class="navbar" id="navbar">
                     <!-- navigates across multiple pages in dashboard -->
-                    <a href="adminDashboard.html"><i class="fa fa-fw fa-home"></i> Home</a>
+                    <a href="adminDashboard.html" id = "dashboard-link"><i class="fa fa-fw fa-home"></i> Home</a>
+                    <script>
+                       if(localStorage.getItem('Role') === 'user'){
+                        document.getElementById('dashboard-link').href="userdashboard.html";
+                    } 
+                    </script>
                     <a href="updateForm.html"><i class="fa fa-refresh" aria-hidden="true"></i> Update Account</a>
                     <a href="database.html" id ='database-option'><i class="fa-solid fa-database"></i> User Database</a>
                     <!-- //script to disable admin actions for users -->
