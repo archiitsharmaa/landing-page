@@ -40,16 +40,16 @@ This page contains functionality for admin to acess teh users/admin database and
             </div>
 
             <!-- displays tables from the script below -->
-            <form onsubmit="return false"  id="searchUserForm">
-            <input type="text" id="searchInput" onkeyup="searchPerson()" placeholder="Search the Username"> 
-            <table id="displayTable" style="margin-top: auto; margin-bottom: auto;">
-                <tr class="header">
-                    <th>Name</th>
-                    <th>Username</th>
-                    <th>Role</th>
-                    <th>Actions</th>
-                </tr>
-            </table>
+            <form onsubmit="return false" id="searchUserForm">
+                <input type="text" id="searchInput" onkeyup="searchPerson()" placeholder="Search the Username">
+                <table id="displayTable" style="margin-top: auto; margin-bottom: auto;">
+                    <tr class="header">
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </table>
             </form>
 
         </div>
@@ -85,47 +85,18 @@ This page contains functionality for admin to acess teh users/admin database and
                 table.innerHTML += row
             }
         }
-
-        //fucntion to updates the user values
-        function updateUser(index) {
-
-            // destroys the current local storage values and updates the user with value
-            if (index > -1) {
-                localStorage.removeItem('FullName');
-                localStorage.removeItem('Username');
-                localStorage.removeItem('Role');
-                localStorage.removeItem('Password');
-
-                localStorage.setItem('FullName', recordss[index].name);
-                localStorage.setItem('Username', recordss[index].username);
-                localStorage.setItem('Role', recordss[index].role);
-                localStorage.setItem('Password', recordss[index].password);
-
-                window.location.href = 'updateForm.html';
-            }
-
-        }
-
-        //function to remove the users
-        function removeItemOnce(index) {
-
-            //uses splice to run the course
-            if (index > -1) {
-                recordss.splice(index, 1);
-                localStorage.setItem("MobilezDatabase", JSON.stringify(recordss));
-                document.location.reload(true)
-            }
-            return recordss;
-        }
     </script>
 
     <!-- adding toastifiers class -->
-    <div id="logout-toast"><div id="img"><i class="fa fa-check" aria-hidden="true"></i></div><div id="desc">Logged Out, Sucessfully !</div></div>
+    <div id="logout-toast">
+        <div id="img"><i class="fa fa-check" aria-hidden="true"></i></div>
+        <div id="desc">Logged Out, Sucessfully !</div>
+    </div>
 
     <!-- importing required scripts to provide functionality  -->
     <script src="./javascripts/script.js"></script>
     <script src="./javascripts/validation.js"></script>
-    <script src ="./javascripts/operations.js"></script>
+    <script src="./javascripts/operations.js"></script>
 </body>
 
 </html>

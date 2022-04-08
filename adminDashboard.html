@@ -41,27 +41,30 @@ This page contains functionality for admin dashbaord and operations it can perfo
             <div id="admin-dashboard-welcome">
                 <h1> Hi <script>
                         // displays current logged in admin name
-                        document.write(localStorage.getItem('FullName'));
+                        document.write(localStorage.getItem('adminFullName'));
                     </script>
                 </h1>
 
                 <!-- displaying details of current account -->
                 <p> The details of this accounts are as follows.</p>
                 <h2>Name : <script>
-                        document.write(localStorage.getItem('FullName'));
+                        document.write(localStorage.getItem('adminFullName'));
                     </script><br>
                     Username : <script>
-                        document.write(localStorage.getItem('Username'));
+                        document.write(localStorage.getItem('adminUsername'));
                     </script><br>
                     Role : <script>
-                        document.write(localStorage.getItem('Role'));
+                        document.write(localStorage.getItem('adminRole'));
                     </script>
                 </h2>
             </div>
         </div>
 
         <!-- adding toastifiers class -->
-        <div id="logout-toast"><div id="img"><i class="fa fa-check" aria-hidden="true"></i></div><div id="desc">Logged Out, Sucessfully !</div></div>
+        <div id="logout-toast">
+            <div id="img"><i class="fa fa-check" aria-hidden="true"></i></div>
+            <div id="desc">Logged Out, Sucessfully !</div>
+        </div>
 
         <!-- importing js scripts to be used -->
         <script src="./javascripts/validation.js"></script>

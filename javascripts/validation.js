@@ -166,6 +166,11 @@ function loginvalidation(e, role){
 
         //if the passed role is admin redirects you to admin dashboard
         if(role == 'admin'){
+            //set temp variables in local storage to be accessed
+            localStorage.setItem('adminFullName', processAdmins[0].name);
+            localStorage.setItem('adminUsername', processAdmins[0].username);
+            localStorage.setItem('adminRole', processAdmins[0].role);
+            localStorage.setItem('adminPassword', processAdmins[0].password);
             window.location.href = 'adminDashboard.html';
         }
 
