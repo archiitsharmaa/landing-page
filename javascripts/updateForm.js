@@ -120,7 +120,7 @@ function validatePasswordChange(){
     
 
 // updates the data of the user/admin
-function updateForm(e){
+function updateForm(e, updateType){
 
     //prevents basic nature
     e.preventDefault();
@@ -151,9 +151,38 @@ function updateForm(e){
             }
         }
 
+        
+        localStorage.setItem("MobilezDatabase", JSON.stringify(data));
+
+        //updating in local storage for session display
+        localStorage.setItem('FullName',inputname);
+        localStorage.setItem('Username', inputUsername);
+        localStorage.setItem('Password', inputPassword);
+
+        console.log(updateType);
+    
+
+       //updating for session display
+        if(updateType === 'currentUser' && localStorage.getItem('adminFullName') != null){
+            localStorage.setItem('adminFullName',inputname);
+            localStorage.setItem('adminUsername', inputUsername);
+            localStorage.setItem('adminPassword', inputPassword);
+        }
+        
         //updates the updated data to local storage
         launch_user_Success_toast();
-        localStorage.setItem("MobilezDatabase", JSON.stringify(data));
+        
+        //function to wait and pause to stop execution
+        function waitandpause() {
+            location.reload();
+        }
+        
+        // stop for sometime if needed
+        setTimeout(waitandpause, 5000);
+
+        //reload the page for display
+        
+        
     }
 
     //if some error occured

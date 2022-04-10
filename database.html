@@ -14,6 +14,12 @@ This page contains functionality for admin to acess teh users/admin database and
 </head>
 
 <body>
+    <!-- script to disable the movement when locked out -->
+    <script>
+        if(localStorage.getItem('adminFullName') == null){
+            window.location.href = 'adminform.html';
+        }
+    </script>
     <!-- main div covers entire page -->
     <div id="main">
 

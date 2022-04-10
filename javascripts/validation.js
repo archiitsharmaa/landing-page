@@ -200,6 +200,14 @@ function logoutUser(){
     localStorage.removeItem('Role');
     localStorage.removeItem('Password');
 
+    //logouts admin roles if presernt
+    if(localStorage.getItem('adminFullName') != null){
+    localStorage.removeItem('adminFullName');
+    localStorage.removeItem('adminUsername');
+    localStorage.removeItem('adminRole');
+    localStorage.removeItem('adminPassword');
+    }
+
     //routes you too index page when logout if you admin
     if(role == 'admin'){
         logout_toast();
@@ -211,7 +219,6 @@ function logoutUser(){
         
         // stop for sometime if needed
         setTimeout(waitandpause, 2000);
-   ;
     
     }
 

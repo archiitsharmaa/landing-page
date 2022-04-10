@@ -14,6 +14,12 @@ This page contains functionality for admin dashbaord and operations it can perfo
 </head>
 
 <body>
+    <!-- script to disable movement whenever locked -->
+    <script>
+        if(localStorage.getItem('adminFullName') == null){
+            window.location.href = 'adminform.html';
+        }
+    </script>
     <!-- main div covers entire page -->
     <div id="main">
 

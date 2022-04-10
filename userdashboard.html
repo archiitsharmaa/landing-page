@@ -14,6 +14,12 @@ This page contains functionality for user dashbaord and operations it can perfor
 </head>
 
 <body>
+    <!-- script to disable movement when locked out -->
+    <script>
+        if(localStorage.getItem('FullName') == null){
+            window.location.href = 'userform.html';
+        }
+    </script>
     <!-- main div covers entire page -->
     <div id="main">
         <!-- box div at the center of page with glassify effect -->
